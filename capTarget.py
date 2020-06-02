@@ -9,7 +9,7 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
 
 PORT = int(os.environ.get('PORT', 5000))
-bot = telegram.Bot(token="1182317337: AAHO14wneRH2M2PM_UE58j2cniS902Q51pI")
+bot = telegram.Bot(token="1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI")
 
 users = []
 
@@ -179,7 +179,7 @@ def main():
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
     updater = Updater(
-        "1182317337: AAHO14wneRH2M2PM_UE58j2cniS902Q51pI", use_context=True)
+        "1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -217,10 +217,10 @@ def main():
     # Start the Bot
     updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
-                          url_path='1182317337: AAHO14wneRH2M2PM_UE58j2cniS902Q51pI')
+                          url_path='1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI')
 
-    updater.bot.setWebhook('https://arcane-beach-85347.herokuapp.com/' +
-                           '1182317337: AAHO14wneRH2M2PM_UE58j2cniS902Q51pI')
+    updater.bot.setWebhook('https://afternoon-dusk-70003.herokuapp.com/' +
+                           '1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI')
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
