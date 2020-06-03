@@ -29,4 +29,6 @@ updater.start_webhook(listen= < Listen Address >,
 
 updater.bot.setWebhook( < Server Name > +
                            < API Key > )
+                           
+To test the bot, visit: https://t.me/nusacadplanCAP_bot
 ```
