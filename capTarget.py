@@ -8,8 +8,8 @@ from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
 
-PORT = int(os.environ.get('PORT', 5000))
-bot = telegram.Bot(token="1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI")
+PORT = int(os.environ.get('PORT', < Port Number >))
+bot = telegram.Bot(token="<API Key>")
 
 users = []
 
@@ -133,7 +133,7 @@ def collect_targetgpa(update, context):
                 "\n\nYou should achieve an average CAP of " + str(ideal_GPA) +
                 " for the remaining " +
                 str(total_Required - total_Taken) +
-                " MCs you have left to fulfil "
+                " MCs you have yet fulfil "
                 "in order to graduate with a CAP of " + str(targetGPA) + ". All the best, you can do it! :) ")
             update.message.reply_text(
                 "\n\nGoodbye! Type '/start' to calculate again")
@@ -179,7 +179,7 @@ def main():
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
     updater = Updater(
-        "1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI", use_context=True)
+        "<API Key>", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -215,12 +215,12 @@ def main():
     dp.add_error_handler(error)
 
     # Start the Bot
-    updater.start_webhook(listen="0.0.0.0",
+    updater.start_webhook(listen="<Listen Address>",
                           port=int(PORT),
-                          url_path='1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI')
+                          url_path='<API Key>')
 
-    updater.bot.setWebhook('https://afternoon-dusk-70003.herokuapp.com/' +
-                           '1182317337:AAHO14wneRH2M2PM_UE58j2cniS902Q51pI')
+    updater.bot.setWebhook('<Server Address>' +
+                           '<API Key>')
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
