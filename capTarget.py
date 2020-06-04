@@ -3,13 +3,14 @@ import logging
 import inflect
 import telegram
 import os
+import constants
 
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,
                           ConversationHandler)
 
-PORT = int(os.environ.get('PORT', < Port Number >))
-bot = telegram.Bot(token="<API Key>")
+PORT = int(os.environ.get('PORT', constants.PORT_NUMBER))
+bot = telegram.Bot(token=constants.API_KEY)
 
 users = []
 
@@ -69,7 +70,7 @@ def collect_MCs_required(update, context):
         user_data.clear()
         return ConversationHandler.END
     else:
-        update.message.reply_text("Total MCs you have to take is" + mR
+        update.message.reply_text("Total MCs you have to take is " + mR
                                   + "\n\nHow many MCs have you taken?"
                                   )
         return TOTAL_MCS_TAKEN
@@ -179,7 +180,7 @@ def main():
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
     updater = Updater(
-        "<API Key>", use_context=True)
+        constants.API_KEY, use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -215,12 +216,12 @@ def main():
     dp.add_error_handler(error)
 
     # Start the Bot
-    updater.start_webhook(listen="<Listen Address>",
+    updater.start_webhook(listen=constants.LISTEN_ADDRESS,
                           port=int(PORT),
-                          url_path='<API Key>')
+                          url_path=constants.API_KEY)
 
-    updater.bot.setWebhook('<Server Address>' +
-                           '<API Key>')
+    updater.bot.setWebhook(constants.HEROKU_SERVER_ADDRESS +
+                           constants.API_KEY)
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
